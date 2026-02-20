@@ -5,7 +5,7 @@ function Products({onSelectProduct}) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/products')
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products`)
             .then((response) => response.json())
             .then((data) => {
             console.log('Products API response:', data);

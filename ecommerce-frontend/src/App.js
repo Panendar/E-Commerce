@@ -52,7 +52,7 @@ function App() {
     if (mode !== "productDetail" || !selectedProductId) return;
 
     setDetailLoading(true);
-    fetch(`http://127.0.0.1:8000/products/${selectedProductId}`)
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${selectedProductId}`)
       .then((res) => res.json())
       .then((data) => {
         setSelectedProduct(data);

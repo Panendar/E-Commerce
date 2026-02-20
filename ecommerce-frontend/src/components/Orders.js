@@ -4,7 +4,7 @@ function Orders({ currentUser }) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/orders/${currentUser}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/${currentUser}`)
             .then((res) => res.json())
             .then((data) => setOrders(data))
             .catch(() => alert('Failed to load orders'));

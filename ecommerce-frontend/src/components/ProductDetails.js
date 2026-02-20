@@ -5,7 +5,7 @@ function ProductDetail({ productId, onBack, currentUser}) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/products/${productId}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}`)
             .then((res) => res.json())
             .then((data) => {
             console.log('Product detail API response:', data);

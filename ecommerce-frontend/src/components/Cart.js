@@ -4,7 +4,7 @@ function Cart({ currentUser }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/cart/${currentUser}`)
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/${currentUser}`)
       .then((res) => res.json())
       .then((data) => setItems(data.items))
       .catch(() => alert('Failed to load cart'));
@@ -24,7 +24,7 @@ function Cart({ currentUser }) {
       ))}
       <button
         onClick={() => {
-            fetch('http://127.0.0.1:8000/orders/place', {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/place`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
